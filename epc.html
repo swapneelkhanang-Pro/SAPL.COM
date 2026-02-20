@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EPC & Industrial Construction – End-to-end EPC, civil & structural, fabrication, industrial project execution. Source Analytics, New Panvel.">
+  <title>EPC | Source Analytics Pvt Ltd</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <a href="index.html"><img src="images/SA-logo.png" alt="Source Analytics Pvt Ltd"></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="supply.html">Supply & Installation</a>
+    <a href="epc.html" class="active">EPC</a>
+    <a href="contact.html">Enquiry & Contact</a>
+    <a href="contact.html#careers">Careers</a>
+  </nav>
+</header>
+
+<div class="fullpage-slider" id="epcFullpage">
+  <div class="fullpage-slide active" data-slide="1" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80');">
+    <div class="fullpage-slide-overlay"></div>
+    <div class="fullpage-slide-content">
+      <h2>End-to-End EPC Solutions</h2>
+      <p>We deliver full EPC (Engineering, Procurement, Construction) services for industrial and commercial projects. From design and procurement to construction and commissioning, we manage the entire project lifecycle with a single point of responsibility—reducing interface risks and ensuring timely, cost-effective delivery.</p>
+    </div>
+  </div>
+  <div class="fullpage-slide" data-slide="2" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=80');">
+    <div class="fullpage-slide-overlay"></div>
+    <div class="fullpage-slide-content">
+      <h2>Industrial Construction</h2>
+      <p>Our civil and structural execution includes earthwork, foundations, RCC and steel structures, building shells, and finishing works. We work to approved drawings and specifications, with quality checks at defined stages.</p>
+      <ul>
+        <li>Site development and earthwork</li>
+        <li>Foundations and substructure</li>
+        <li>Structural steel and RCC framework</li>
+        <li>Building envelope and finishing</li>
+      </ul>
+    </div>
+  </div>
+  <div class="fullpage-slide" data-slide="3" style="background-image: url('https://images.unsplash.com/photo-1581092160562-40d7e2d4e743?auto=format&fit=crop&w=1600&q=80');">
+    <div class="fullpage-slide-overlay"></div>
+    <div class="fullpage-slide-content">
+      <h2>Fabrication & Installations</h2>
+      <p>We execute industrial infrastructure projects including manufacturing facilities, utilities, and support buildings. Our project teams coordinate with clients, consultants, and vendors to meet schedule and quality targets. Skilled welding and fabrication workforce supports structural and piping installations.</p>
+    </div>
+  </div>
+  <div class="fullpage-slide" data-slide="4" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=80');">
+    <div class="fullpage-slide-overlay"></div>
+    <div class="fullpage-slide-content">
+      <h2>Safety & Project Management</h2>
+      <p>Safety is non-negotiable. We follow site safety protocols, statutory requirements, and client HSE standards. Our workforce is trained on safe work practices, and we maintain documentation for audits and compliance.</p>
+      <p>We use structured project management—planning, scheduling, resource allocation, and progress tracking—to keep projects on track. Regular reporting and client reviews ensure transparency and timely decision-making.</p>
+    </div>
+  </div>
+</div>
+
+<div class="fullpage-slider-nav" id="epcNav">
+  <button type="button" id="epcPrev" aria-label="Previous slide">‹</button>
+  <button type="button" id="epcNext" aria-label="Next slide">›</button>
+</div>
+<div class="fullpage-slider-dots" id="epcDots"></div>
+
+<footer>
+  <p>© 2024 SAPL | Source Analytics Pvt Ltd</p>
+  <p>Serving Oil & Gas, Petrochemicals, Chemical, Pharmaceutical & EPC Industries</p>
+  <p><a href="contact.html" style="color: rgba(255,255,255,0.9); margin-top: 8px; display: inline-block;">Enquiry & Contact</a></p>
+</footer>
+
+<script>
+(function() {
+  var slider = document.getElementById('epcFullpage');
+  var slides = slider ? slider.querySelectorAll('.fullpage-slide') : [];
+  var total = slides.length;
+  var current = 1;
+  var prevBtn = document.getElementById('epcPrev');
+  var nextBtn = document.getElementById('epcNext');
+  var dotsEl = document.getElementById('epcDots');
+  function goTo(n) {
+    current = n;
+    if (current < 1) current = total;
+    if (current > total) current = 1;
+    slides.forEach(function(s) {
+      s.classList.toggle('active', parseInt(s.getAttribute('data-slide'), 10) === current);
+    });
+    if (dotsEl) dotsEl.querySelectorAll('button').forEach(function(b, i) { b.classList.toggle('active-dot', i + 1 === current); });
+  }
+  if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); });
+  for (var i = 1; i <= total; i++) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Slide ' + i);
+    btn.setAttribute('data-index', i);
+    btn.addEventListener('click', function() { goTo(parseInt(this.getAttribute('data-index'), 10)); });
+    dotsEl.appendChild(btn);
+  }
+  goTo(1);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SAPL Services – Engineering & Architectural, Maintenance & Utilities, Industrial Support. HVAC, MEP, automation, construction support.">
+  <title>Services | Source Analytics Pvt Ltd</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <a href="index.html"><img src="images/SA-logo.png" alt="Source Analytics Pvt Ltd"></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="supply.html">Supply & Installation</a>
+    <a href="epc.html">EPC</a>
+    <a href="contact.html">Enquiry & Contact</a>
+    <a href="contact.html#careers">Careers</a>
+  </nav>
+</header>
+
+<div class="fullpage-slider" id="svcFullpage">
+  <div class="fullpage-slide active" data-slide="1" style="background-image: url('https://images.unsplash.com/photo-1581092160562-40d7e2d4e743?auto=format&fit=crop&w=1600&q=80');">
+    <div class="fullpage-slide-overlay"></div>
+    <div class="fullpage-slide-content">
+      <h2>Engineering & Architectural Services</h2>
+      <p>We provide comprehensive engineering solutions for industrial and commercial projects, from conceptual design to detailed engineering and support during execution.</p>
+      <ul>
+        <li>Engineering Solutions – feasibility, design, technical specifications</li>
+        <li>Architectural Services – planning, layouts, statutory compliance</li>
+        <li>Interior Design – space planning and finish specifications</li>
+        <li>MEP Services – mechanical, electrical, plumbing design and execution</li>
+        <li>Industrial Welding – code-compliant fabrication for structural and piping</li>
+      </ul>
+    </div>
+  </div>
+  <div class="fullpage-slide" data-slide="2" style="background-image: url('https://images.unsplash.com/photo-1581092160562-40d7e2d4e743?auto=format&fit=crop&w=1600&q=80');">
+    <div class="fullpage-slide-overlay"></div>
+    <div class="fullpage-slide-content">
+      <h2>Maintenance & Utilities</h2>
+      <p>Annual maintenance contracts, preventive and predictive maintenance, and rapid response for HVAC and MEP systems.</p>
+      <ul>
+        <li>HVAC Maintenance</li>
+        <li>MEP Maintenance</li>
+        <li>Preventive & Predictive Maintenance</li>
+        <li>Emergency Breakdown Support</li>
+      </ul>
+    </div>
+  </div>
+  <div class="fullpage-slide" data-slide="3" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80');">
+    <div class="fullpage-slide-overlay"></div>
+    <div class="fullpage-slide-content">
+      <h2>Industrial Support</h2>
+      <p>We support industrial clients with construction coordination, site supervision, and integrated supply-and-service execution—ensuring seamless project delivery and long-term operational support.</p>
+    </div>
+  </div>
+</div>
+
+<div class="fullpage-slider-nav" id="svcNav">
+  <button type="button" id="svcPrev" aria-label="Previous slide">‹</button>
+  <button type="button" id="svcNext" aria-label="Next slide">›</button>
+</div>
+<div class="fullpage-slider-dots" id="svcDots"></div>
+
+<footer>
+  <p>© 2024 SAPL | Source Analytics Pvt Ltd</p>
+  <p>Serving Oil & Gas, Petrochemicals, Chemical, Pharmaceutical & EPC Industries</p>
+  <p><a href="contact.html" style="color: rgba(255,255,255,0.9); margin-top: 8px; display: inline-block;">Enquiry & Contact</a></p>
+</footer>
+
+<script>
+(function() {
+  var slider = document.getElementById('svcFullpage');
+  var slides = slider ? slider.querySelectorAll('.fullpage-slide') : [];
+  var total = slides.length;
+  var current = 1;
+  var prevBtn = document.getElementById('svcPrev');
+  var nextBtn = document.getElementById('svcNext');
+  var dotsEl = document.getElementById('svcDots');
+  function goTo(n) {
+    current = n;
+    if (current < 1) current = total;
+    if (current > total) current = 1;
+    slides.forEach(function(s) {
+      s.classList.toggle('active', parseInt(s.getAttribute('data-slide'), 10) === current);
+    });
+    if (dotsEl) dotsEl.querySelectorAll('button').forEach(function(b, i) { b.classList.toggle('active-dot', i + 1 === current); });
+  }
+  if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); });
+  for (var i = 1; i <= total; i++) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Slide ' + i);
+    btn.setAttribute('data-index', i);
+    btn.addEventListener('click', function() { goTo(parseInt(this.getAttribute('data-index'), 10)); });
+    dotsEl.appendChild(btn);
+  }
+  goTo(1);
+})();
+</script>
+</body>
+</html>

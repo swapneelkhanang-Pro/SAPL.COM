@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Supply & Installation – Industrial materials, process & equipment, HVAC, automation. Quality-assured procurement. Source Analytics, New Panvel.">
+  <title>Supply & Installation | Source Analytics Pvt Ltd</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <a href="index.html"><img src="images/SA-logo.png" alt="Source Analytics Pvt Ltd"></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="supply.html" class="active">Supply & Installation</a>
+    <a href="epc.html">EPC</a>
+    <a href="contact.html">Enquiry & Contact</a>
+    <a href="contact.html#careers">Careers</a>
+  </nav>
+</header>
+
+<div class="fullpage-slider" id="supFullpage">
+  <div class="fullpage-slide active" data-slide="1" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80');">
+    <div class="fullpage-slide-overlay"></div>
+    <div class="fullpage-slide-content">
+      <h2>Industrial Materials & Procurement</h2>
+      <p>We leverage strong vendor relationships and technical expertise to source construction materials, fabrication materials, automation components, and MEP equipment. Our procurement team ensures timely delivery, competitive pricing, and compliance with project specifications—supporting both our own EPC projects and third-party supply requirements.</p>
+      <ul>
+        <li>Construction Materials</li>
+        <li>Fabrication Materials</li>
+        <li>Automation Systems</li>
+        <li>Safety Devices</li>
+      </ul>
+    </div>
+  </div>
+  <div class="fullpage-slide" data-slide="2" style="background-image: url('https://images.unsplash.com/photo-1581092160562-40d7e2d4e743?auto=format&fit=crop&w=1600&q=80');">
+    <div class="fullpage-slide-overlay"></div>
+    <div class="fullpage-slide-content">
+      <h2>HVAC & Automation</h2>
+      <p>We supply and install complete HVAC systems for commercial, industrial, and healthcare facilities. Our scope includes air conditioning units, ventilation systems, ducting, controls, and commissioning—ensuring optimal indoor climate and energy efficiency.</p>
+      <p>We integrate automation systems for process control, building management, and safety—PLCs, SCADA, safety devices, and related instrumentation.</p>
+    </div>
+  </div>
+  <div class="fullpage-slide" data-slide="3" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80');">
+    <div class="fullpage-slide-overlay"></div>
+    <div class="fullpage-slide-content">
+      <h2>M&amp;E Installations & Quality</h2>
+      <p>We execute mechanical and electrical installations in line with approved drawings and standards. This includes piping, equipment mounting, cable laying, panel erection, and coordination with civil and structural works.</p>
+      <p>All supplied and installed systems undergo quality checks and testing as per project and statutory requirements. We maintain documentation for traceability and handover, supporting client audits and compliance.</p>
+    </div>
+  </div>
+</div>
+
+<div class="fullpage-slider-nav" id="supNav">
+  <button type="button" id="supPrev" aria-label="Previous slide">‹</button>
+  <button type="button" id="supNext" aria-label="Next slide">›</button>
+</div>
+<div class="fullpage-slider-dots" id="supDots"></div>
+
+<footer>
+  <p>© 2024 SAPL | Source Analytics Pvt Ltd</p>
+  <p>Serving Oil & Gas, Petrochemicals, Chemical, Pharmaceutical & EPC Industries</p>
+  <p><a href="contact.html" style="color: rgba(255,255,255,0.9); margin-top: 8px; display: inline-block;">Enquiry & Contact</a></p>
+</footer>
+
+<script>
+(function() {
+  var slider = document.getElementById('supFullpage');
+  var slides = slider ? slider.querySelectorAll('.fullpage-slide') : [];
+  var total = slides.length;
+  var current = 1;
+  var prevBtn = document.getElementById('supPrev');
+  var nextBtn = document.getElementById('supNext');
+  var dotsEl = document.getElementById('supDots');
+  function goTo(n) {
+    current = n;
+    if (current < 1) current = total;
+    if (current > total) current = 1;
+    slides.forEach(function(s) {
+      s.classList.toggle('active', parseInt(s.getAttribute('data-slide'), 10) === current);
+    });
+    if (dotsEl) dotsEl.querySelectorAll('button').forEach(function(b, i) { b.classList.toggle('active-dot', i + 1 === current); });
+  }
+  if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); });
+  for (var i = 1; i <= total; i++) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Slide ' + i);
+    btn.setAttribute('data-index', i);
+    btn.addEventListener('click', function() { goTo(parseInt(this.getAttribute('data-index'), 10)); });
+    dotsEl.appendChild(btn);
+  }
+  goTo(1);
+})();
+</script>
+</body>
+</html>

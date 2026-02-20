@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Source Analytics Pvt Ltd – Our journey, strength, industry expertise and commitment to safety. Founded 2016, New Panvel.">
+  <title>About Us | Source Analytics Pvt Ltd</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <a href="index.html"><img src="images/SA-logo.png" alt="Source Analytics Pvt Ltd"></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="services.html">Services</a>
+    <a href="supply.html">Supply & Installation</a>
+    <a href="epc.html">EPC</a>
+    <a href="contact.html">Enquiry & Contact</a>
+    <a href="contact.html#careers">Careers</a>
+  </nav>
+</header>
+
+<div class="fullpage-slider" id="aboutFullpage">
+  <div class="fullpage-slide active" data-slide="1" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');">
+    <div class="fullpage-slide-overlay"></div>
+    <div class="fullpage-slide-content">
+      <h2>Our Journey</h2>
+      <p>Source Analytics Private Limited was founded in 2016 by Late Sri Mr. Sunil Sangwekar and Mrs. Manasi Khanang, with a vision to create a dependable industrial solutions company that integrates engineering capability with efficient supply management.</p>
+      <p>Today, the company is led by its Board of Directors: <strong>Mrs. Manasi Khanang</strong> and <strong>Mrs. Kalpana Kulkarni</strong>. Under their leadership, SAPL has strengthened its operational capabilities and expanded across multiple industrial verticals.</p>
+    </div>
+  </div>
+  <div class="fullpage-slide" data-slide="2" style="background-image: url('https://images.unsplash.com/photo-1581092160562-40d7e2d4e743?auto=format&fit=crop&w=1600&q=80');">
+    <div class="fullpage-slide-overlay"></div>
+    <div class="fullpage-slide-content">
+      <h2>Our Strength</h2>
+      <p>Our core strength lies in our multidisciplinary team of highly experienced professionals, collectively bringing over 100 years of cumulative industry experience across engineering, construction, automation and industrial maintenance.</p>
+      <ul>
+        <li>Experienced Engineers & Designers</li>
+        <li>HVAC Specialists</li>
+        <li>Industrial Construction Teams</li>
+        <li>Skilled Welding & Fabrication Workforce</li>
+        <li>Dedicated Maintenance Crews</li>
+        <li>In-house Tools, Tackles & Equipment</li>
+        <li>Strong Workmen Force to meet industrial-scale requirements</li>
+      </ul>
+      <p>SAPL has successfully executed numerous projects across industrial sectors, consistently maintaining high standards of quality, safety and compliance.</p>
+    </div>
+  </div>
+  <div class="fullpage-slide" data-slide="3" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80');">
+    <div class="fullpage-slide-overlay"></div>
+    <div class="fullpage-slide-content">
+      <h2>Industry Expertise & Leadership</h2>
+      <p>To further strengthen our technical foundation, SAPL has inducted a 30-year veteran Oil & Gas professional with deep expertise in Safety Engineering and Chemical Engineering, who has successfully executed more than 20 major projects in India and internationally.</p>
+      <p>This strategic leadership ensures that safety, regulatory compliance, and engineering excellence remain at the core of every project.</p>
+    </div>
+  </div>
+  <div class="fullpage-slide" data-slide="4" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80');">
+    <div class="fullpage-slide-overlay"></div>
+    <div class="fullpage-slide-content">
+      <h2>Our Unique Positioning</h2>
+      <p>SAPL stands apart in the industrial marketplace through its integrated model:</p>
+      <ul>
+        <li>We provide both <strong>Supply and Services</strong> — a unique, end-to-end solution rarely offered within the industrial sector.</li>
+        <li>From sourcing industrial materials to executing turnkey EPC projects and delivering long-term maintenance solutions, SAPL operates as a complete industrial partner rather than a segmented contractor.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="fullpage-slide" data-slide="5" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=80');">
+    <div class="fullpage-slide-overlay"></div>
+    <div class="fullpage-slide-content">
+      <h2>Our Commitment to Safety</h2>
+      <p><strong>Safety is not a policy — it is our culture.</strong></p>
+      <p><strong>Zero Harm and Zero Incidents since inception to the People & Environment.</strong></p>
+      <p>We are committed to maintaining the highest safety standards across all project sites, ensuring protection of personnel, assets and the environment.</p>
+    </div>
+  </div>
+</div>
+
+<div class="fullpage-slider-nav" id="aboutNav">
+  <button type="button" id="aboutPrev" aria-label="Previous slide">‹</button>
+  <button type="button" id="aboutNext" aria-label="Next slide">›</button>
+</div>
+<div class="fullpage-slider-dots" id="aboutDots"></div>
+
+<footer>
+  <p>© 2024 SAPL | Source Analytics Pvt Ltd</p>
+  <p>Serving Oil & Gas, Petrochemicals, Chemical, Pharmaceutical & EPC Industries</p>
+  <p><a href="contact.html" style="color: rgba(255,255,255,0.9); margin-top: 8px; display: inline-block;">Enquiry & Contact</a></p>
+</footer>
+
+<script>
+(function() {
+  var slider = document.getElementById('aboutFullpage');
+  var slides = slider ? slider.querySelectorAll('.fullpage-slide') : [];
+  var total = slides.length;
+  var current = 1;
+  var prevBtn = document.getElementById('aboutPrev');
+  var nextBtn = document.getElementById('aboutNext');
+  var dotsEl = document.getElementById('aboutDots');
+
+  function goTo(n) {
+    current = n;
+    if (current < 1) current = total;
+    if (current > total) current = 1;
+    slides.forEach(function(s) {
+      s.classList.toggle('active', parseInt(s.getAttribute('data-slide'), 10) === current);
+    });
+    if (dotsEl) {
+      dotsEl.querySelectorAll('button').forEach(function(b, i) {
+        b.classList.toggle('active-dot', i + 1 === current);
+      });
+    }
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+  for (var i = 1; i <= total; i++) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Slide ' + i);
+    btn.addEventListener('click', function() { goTo(parseInt(this.getAttribute('data-index'), 10)); });
+    btn.setAttribute('data-index', i);
+    dotsEl.appendChild(btn);
+  }
+  goTo(1);
+})();
+</script>
+</body>
+</html>
